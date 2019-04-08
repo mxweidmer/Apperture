@@ -9,39 +9,36 @@ var flash = require("connect-flash");
 var session = require("express-session");
 var passport = require("passport");
 var LocalStrategy = require("passport-local"),Strategy;
-//==================================================
+//=============================================================
 var app = express();
 var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 var db = require("./models");
 
-//Routes ========================================
+//Routes ========================================================
 
 var routes = require("./routes/index.js")(app);
 var users = require("./routes/users.js")(app);
 
-// Sets up the Express app to handle data parsing
+// Sets up the Express app to handle data parsing================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Set Handlebars.
+// Set Handlebars================================================
 app.set("view", path.join(__dirname,"view"));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// BodyParser Middleware
+// BodyParser Middleware==========================================
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
     
-
-
-
-// Static directory============================================
+// Static directory==============================================
 app.use(express.static(path.join(__dirname,"public")));
 
-// Express Session
+// Express Session===============================================
 
 app.use(session({
     secret:"secret",
@@ -49,12 +46,12 @@ app.use(session({
     resave:true
 }))
 
-// Passport init
+// Passport init==================================================
 
 app.use(paassport.initialize());
 app.use(passport.session());
 
-// Express Validator
+// Express Validator==============================================
 app.use(expressValidator({
     errorFormatter:function(param,msg,value){
         var namespace = param.split("."),
@@ -72,11 +69,11 @@ app.use(expressValidator({
     }
 }));
 
-// Connect Flash
+// Connect Flash=================================================
 
 app.use(flash());
 
-// Global Vars
+// Global Vars===================================================
 
 app.use(function (req, res, next){
 
