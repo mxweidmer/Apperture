@@ -3,6 +3,7 @@
     "username": "root",
     "password": "asialink7861",
     "database": "login",
+    "force": true,
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

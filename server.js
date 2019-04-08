@@ -2,7 +2,7 @@
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
-var bodyParser = require("bosy-parser");
+var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var expressValidator = require("express-validator");
 var flash = require("connect-flash");
@@ -14,19 +14,21 @@ var app = express();
 var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
-var db = require("./models");
+//var db = require("./models");
 
 //Routes ========================================================
 
-var routes = require("./routes/index.js")(app);
-var users = require("./routes/users.js")(app);
+//require("./routes/index.js")(app);
+//require("./routes/users.js")(app);
+require("./routes/html-routes.js")(app);
+
 
 // Sets up the Express app to handle data parsing================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Set Handlebars================================================
-app.set("view", path.join(__dirname,"view"));
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
@@ -48,7 +50,7 @@ app.use(session({
 
 // Passport init==================================================
 
-app.use(paassport.initialize());
+app.use(passport.initialize());
 app.use(passport.session());
 
 // Express Validator==============================================
@@ -83,15 +85,15 @@ app.use(function (req, res, next){
     next();
 });
 
-app.use("/", routes);
-app.use("/",users);
+//app.use("/", routes);
+//app.use("/",users);
 
 
 
 // Syncing our sequelize models and then starting our Express app
 
-db.sequelize.sync({ force: true }).then(function() {
+//db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
       console.log("App listening on PORT " + PORT);
     });
-  });
+ // });
