@@ -9,7 +9,6 @@
     </div>
 
     <div class="uk-navbar-right">
-
         <ul class="uk-navbar-nav">
             <li class="uk-active"><a href="#">Parent</a>
                 <div class="uk-navbar-dropdown">
@@ -20,7 +19,28 @@
                 </div>
             </li>
         </ul>
-
     </div>
+    <div uk-grid>
+        <div>
+            <nav class="uk-navbar-container" uk-navbar>
+                <div class="uk-navbar-left">
 
+                    <div class="uk-navbar-item">
+                        <form class="uk-search uk-search-navbar">
+                            <input class="uk-search-input" type="search" placeholder="Search...">
+                        </form>
+                    </div>
+
+                </div>
+            </nav>
+                <div class="uk-inline">
+                    <button class="uk-button uk-button-default" type="button">Click</button>
+                    <div uk-dropdown="mode: click" value="location">Location</div>
+                    <div uk-dropdown="mode: click" value="season">Season</div>
+                </div>
+        </div>
+    </div>
+    <footer>
+        copyright &copy;
+    </footer>
 </nav>
