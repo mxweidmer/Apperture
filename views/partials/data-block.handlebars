@@ -1,4 +1,5 @@
-<div class="uk-child-width-1-4 uk-text-center" uk-toggle="target: #modal-example" data-id={{id}} data-state={{state}} uk-grid>
+<div class="uk-child-width-1-4 uk-text-center" uk-toggle="target: #modal-example" data-id={{id}} data-state={{state}}
+    uk-grid>
     <div>
         {{image}}
     </div>
@@ -10,6 +11,7 @@
             </ul>
         </div>
     </div>
+    {{#unless owner}}
     <div id="modal-example" uk-modal>
         <div class="uk-modal-dialog uk-modal-body">
             <div class"modal-img">
@@ -20,7 +22,41 @@
                 {{description}}
             </div>
             <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-            {{#if owner}}<button class="uk-button uk-button-primary update" type="button">Update</button>{{/if}}
         </div>
     </div>
+    {{/unless}}
+    {{#if owner}}
+    <div id="modal-example" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <div class"modal-img">
+                {{image}}
+            </div>
+            <div>
+                {{location}}
+                {{description}}
+            </div>
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button uk-button-primary update" type="button">Update</button>{{/if}}
+        </div>
+    </div>
+    <form>
+
+        <div class="uk-margin">
+            <input class="uk-input uk-form-width-large" type="text" placeholder="Large">
+        </div>
+
+        <div class="uk-margin">
+            <input class="uk-input uk-form-width-medium" type="text" placeholder="Medium">
+        </div>
+
+        <div class="uk-margin">
+            <input class="uk-input uk-form-width-small" type="text" placeholder="Small">
+        </div>
+
+        <div class="uk-margin">
+            <input class="uk-input uk-form-width-xsmall" type="text" placeholder="XSmall">
+        </div>
+
+    </form>
+    {{/if}}
 </div>
