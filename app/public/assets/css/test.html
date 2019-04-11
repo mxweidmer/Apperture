@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Project 2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
+    <link rel="stylesheet" href="styles.css">
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit-icons.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="uk-navbar-container content" uk-navbar>
+
+        <div class="uk-navbar-left">
+
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="/app/views/search.handlebars">Home</a></li>
+            </ul>
+
+        </div>
+
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="#" menu>Menu</a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <!-- {{#unless owner}} -->
+                            <li class="uk-active"><a href="/app/views/signin.hbs">Login In</a></li>
+                            <!-- {{/unless}} -->
+                            <!-- {{#if owner}}
+                                <li class="uk-active"><a href="/app/views/profile">Profile</a></li>
+                                {{/if}} -->
+                            <!-- {{#unless owner}} -->
+                            <li class="uk-active"><a href="/app/views/signup.hbs">Sign Up</a></li>
+                            <!-- {{/unless}} -->
+                            <!-- {{#if owner}}
+                                <li class="uk-active"><a href="/app/views/search.handlebars">Log out</a></li>
+                                {{/if}} -->
+
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content uk-flex-column uk-flex-center" id ="blah">
+        <div class="uk-margin">
+            <form class="uk-search uk-search-default">
+                <a href="" class="uk-search-icon-flip" uk-search-icon></a>
+                <input class="uk-search-input" type="search" placeholder="Search...">
+            </form>
+        </div>
+        <div class="uk-child-width-1-4 uk-text-center" uk-toggle="target: #modal-example" data-id={{id}}
+            data-state={{state}} uk-grid>
+            <div>
+                {{image}}
+            </div>
+            <div>
+                <div class="uk-child-width-3-4 uk-text-center" uk-grid>
+                    <ul>
+                        <li>{{location}}</li>
+                        <li>{{description}}</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- {{#unless owner}} -->
+            <div id="modal-example" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body">
+                    <div class="modal-img">
+                        {{this.image}}
+                    </div>
+                    <div>
+                        {{this.location}}
+                        {{this.description}}
+                    </div>
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                </div>
+            </div>
+            <!-- {{/unless}} -->
+            <!-- {{#if owner}}
+                <div id="modal-example" uk-modal>
+                    <div class="uk-modal-dialog uk-modal-body">
+                        <form>
+            
+                            <div class="modal-img">
+                                {{this.image}}
+                            </div>
+                            <div class="uk-margin">
+                                <input class="uk-input uk-form-width-large" type="text" placeholder="Large"
+                                    value="{{this.location}}">
+                            </div>
+                            <div class="uk-margin">
+                                <textarea class="uk-textarea" rows="5" placeholder="Textarea">{{this.description}}</textarea>
+                            </div>
+            
+                        </form>
+                    </div>
+                </div>
+            
+                {{/if}} -->
+        </div>
+    </div>
+    <footer class="uk-text-center">
+        copyright &copy;
+    </footer>
+</body>
+
+</html>
