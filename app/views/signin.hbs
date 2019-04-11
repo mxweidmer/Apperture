@@ -1,23 +1,19 @@
-<!DOCTYPE html>
-<html>
- 
-<head>
-    <title></title>
-</head>
- 
-<body>
-    <center>
-    <form id="signin" name="signin" method="post" action="signin">
-        <label for="email">Email Address</label>
-        <input class="text" name="email" type="text" />
-        </br>
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-        </br>
-        <input class="btn" type="submit" value="Sign In" />
-    </form>
-    </center>
- 
-</body>
- 
-</html>
+
+<form class="uk-form-stacked" id="signin" name="signin" method="post" action="signin">
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-text">Email</label>
+        <div class="uk-form-controls">
+            <input class="uk-input" name="email" id="form-stacked-text" type="text" placeholder="janedoe@email.com">
+        </div>
+    </div>
+        <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-text">Password</label>
+        <div class="uk-form-controls">
+            <input class="uk-input" name="password" id="form-stacked-text" type="password" placeholder="...">
+        </div>
+    </div>
+    <button class="uk-button uk-button-default btn" type="submit" value="Sign In">Sign in</button>
+</form>
+<center>
+<a href="/signup"><button class="uk-button uk-button-default btn">Sign up</button></a>
+</center>
