@@ -19,14 +19,22 @@
   },
   "homepage": "https://github.com/mxweidmer/group-project-2#readme",
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^0.18.0",
+=======
+>>>>>>> a960d0f87dd066ba69040d033db0f93bb141f753
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
     "express-session": "^1.15.6",
+<<<<<<< HEAD
     "form-data": "^2.3.3",
+=======
+    "express-validator": "^5.3.1",
+>>>>>>> a960d0f87dd066ba69040d033db0f93bb141f753
     "mysql": "^2.16.0",
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",

@@ -17,6 +17,7 @@ module.exports = function (sequelize, Sequelize) {
             type: Sequelize.STRING,
             notEmpty: true
         },
+<<<<<<< HEAD
 
         username: {
             type: Sequelize.TEXT
@@ -26,6 +27,9 @@ module.exports = function (sequelize, Sequelize) {
             type: Sequelize.TEXT
         },
 
+=======
+         
+>>>>>>> a960d0f87dd066ba69040d033db0f93bb141f753
         email: {
             type: Sequelize.STRING,
             validate: {
@@ -37,11 +41,15 @@ module.exports = function (sequelize, Sequelize) {
             type: Sequelize.STRING,
             allowNull: false
         },
+<<<<<<< HEAD
 
         last_login: {
             type: Sequelize.DATE
         },
 
+=======
+ 
+>>>>>>> a960d0f87dd066ba69040d033db0f93bb141f753
         status: {
             type: Sequelize.ENUM('active', 'inactive'),
             defaultValue: 'active'
