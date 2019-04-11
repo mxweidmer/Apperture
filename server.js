@@ -5,14 +5,16 @@ var session    = require('express-session');
 var bodyParser = require('body-parser');
 var env = require('dotenv');
 var exphbs = require('express-handlebars');
-
+var flash = require('connect-flash');
 
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// For Passport
- 
+// connect flash
+app.use(flash());
+
+// For Passport;
 app.use(session({ secret: 'keyboard cat',resave: true,saveUninitialized:true})); // session secret
  
 app.use(passport.initialize());
