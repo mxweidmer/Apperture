@@ -11,6 +11,9 @@ var flash = require('connect-flash');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// connect flash
+app.use(flash());
+
 // For Passport;
 app.use(session({ secret: 'keyboard cat',resave: true,saveUninitialized:true})); // session secret
  
@@ -26,8 +29,7 @@ app.engine('hbs', exphbs({
     defaultLayout: "main"
 }));
 app.set('view engine', '.hbs');
-// connect flash
-app.use(flash());
+
 //Models
 var models = require("./app/models");
 

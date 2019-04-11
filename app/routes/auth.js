@@ -1,14 +1,34 @@
-var authController = require('../controllers/authcontroller.js');
-const util = require('util')
+//express validator require for user input validation
 const { check, validationResult } = require('express-validator/check');
- 
+
+//======================== Export function =======================================
 module.exports = function(app,passport) {
  
-    app.get('/signup', authController.signup);
+    // Routes
+    app.get('/signin',function(req, res) {
+        res.render('signin',{});     
+    });
+    
+    app.get('/signup', function(req, res) {
+ 
+        res.render('signup');     
+    });
+    
+    app.get('/dashboard',isLoggedIn, function(req, res) {
+ 
+        res.render('dashboard');     
+    });
 
-    app.get('/signin', authController.signin);
-
-// Sign up routes and validation ==============================================
+    app.get('/logout',function(req, res) {
+ 
+        req.session.destroy(function(err) {
+     
+            res.redirect('/');     
+        });
+     
+    });
+    
+// ==================Sign up route and validation=============================
     app.post('/signup',[
         check('firstname', 'First name is required').isLength({ min: 1 }),
         check('lastname', 'Last name is required').isLength({ min: 1 }),
@@ -18,8 +38,7 @@ module.exports = function(app,passport) {
         ], function(req, res) {
     
         const errors = validationResult(req);
-        console.log(util.inspect(errors, {showHidden: false, depth: null}))
-    
+            
         if (!errors.isEmpty()) {
             console.log("error: "+errors.msg);
             res.render('signup', {
@@ -34,23 +53,16 @@ module.exports = function(app,passport) {
             failureFlash : true
           })(req, res);
         }
-      });           
+      });     
     
- //==============================================================
-
-     app.get('/dashboard',isLoggedIn, authController.dashboard);
-
-    app.get('/logout',authController.logout);
-
-// Sign in routes and validation==============================================
+//====================== Sign in route and validation=============================
 app.post('/signin',[
     check('email', 'A valid email is required').isLength({ min: 5 }),
     check('password', 'A valid password is required').isLength({ min: 5 })
     ], function(req, res) {
 
     const errors = validationResult(req);
-    console.log(util.inspect(errors, {showHidden: false, depth: null}))
-
+    
     if (!errors.isEmpty()) {
         console.log("error: "+errors.msg);
         res.render('signin', {
@@ -77,4 +89,6 @@ app.post('/signin',[
     }
 
 }
+
+//==============================================================================
 
