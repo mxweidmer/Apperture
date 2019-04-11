@@ -57,8 +57,8 @@ module.exports = function(app,passport) {
     
 //====================== Sign in route and validation=============================
 app.post('/signin',[
-    check('email', 'A valid email is required').isLength({ min: 5 }),
-    check('password', 'A valid password is required').isLength({ min: 5 })
+    check('email', 'A valid email is required').isEmail(),
+    check('password', 'A valid password is required').isLength({ min: 1 })
     ], function(req, res) {
 
     const errors = validationResult(req);
