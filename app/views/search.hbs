@@ -10,50 +10,37 @@
 
     <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="#">Parent</a>
+            <li class="uk-active"><a href="#">Menu</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        {{#unless owner}}
-                        <li class="uk-active"><a href="/app/views/signin.hbs">Login In</a></li>
-                        {{/unless}}
-                        {{#if owner}}
-                        <li class="uk-active"><a href="/app/views/profile">Profile</a></li>
-                        {{/if}}
-                        {{#unless owner}}
-                        <li class="uk-active"><a href="/app/views/signup.hbs">Sign Up</a></li>
-                        {{/unless}}
-                        {{#if owner}}
-                        <li class="uk-active"><a href="/app/views/search.handlebars">Log out</a></li>
-                        {{/if}}
-
+                        <li class="uk-active"><a href="/dashboard">Profile</a></li>
+                        <li class="uk-active"><a href="/search">Search</a></li>
+                        <li class="uk-active"><a href="/splash">Log out</a></li>
                     </ul>
                 </div>
             </li>
         </ul>
     </div>
-    <div uk-grid>
-        <div>
-            <nav class="uk-navbar-container" uk-navbar>
-                <div class="uk-navbar-left">
-
-                    <div class="uk-navbar-item">
-                        <form class="uk-search uk-search-navbar">
-                            <input class="uk-search-input" type="search" placeholder="Search...">
-                        </form>
-                    </div>
-
-                </div>
-            </nav>
-                <div class="uk-inline">
-                    <button class="uk-button uk-button-default" type="button">Click</button>
-                    <div uk-dropdown="mode: click" value="location">Location</div>
-                    <div uk-dropdown="mode: click" value="season">Season</div>
-                </div>
-        </div>
-    </div>
 </nav>
-    <div ukgrid>
-        {{#each table}}
-        {{> data-block}}
-        {{/each}}
-    </div>
+<div uk-grid>
+    <form class="uk-search uk-search-default uk-inline uk-width-1-1">
+        <input class="uk-search-input" id="search" type="search" placeholder="Search...">
+        <div class="uk-margin">
+            <div uk-form-custom="target: true">
+                <select id="option">
+                    <option value="location">Location</option>
+                    <option value="season">Season</option>
+                    <option value="3">Option 03</option>
+                    <option value="4">Option 04</option>
+                </select>
+                <span></span>
+            </div>
+        </div>
+        <button class="uk-button uk-button-default" type="button">Search</button>
+    </form>
+</div>
+<div ukgrid>
+    {{#each table}}
+    {{> data-block}}
+    {{/each}}
+</div>

@@ -1,14 +1,49 @@
-<!DOCTYPE html>
-<html>
- 
-<head>
-    <title>Passport with Sequelize</title>
-</head>
- 
-<body>
-    <h2>Dashboard</h2>
-    <h5>Hurray! you are logged in.</h5>
- 
-</body>
- 
-</html>
+<nav class="uk-navbar-container content" uk-navbar>
+
+    <div class="uk-navbar-left">
+
+        <ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="/app/views/search.handlebars">Home</a></li>
+        </ul>
+
+    </div>
+
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="#">Menu</a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li class="uk-active"><a href="/dashboard">Profile</a></li>
+                        <li class="uk-active"><a href="/search">Search</a></li>
+                        <li class="uk-active"><a href="/splash">Log out</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+    <div uk-grid>
+        <div>
+            <nav class="uk-navbar-container" uk-navbar>
+                <div class="uk-navbar-left">
+
+                    <div class="uk-navbar-item">
+                        <form class="uk-search uk-search-navbar">
+                            <input class="uk-search-input" type="search" placeholder="Search...">
+                        </form>
+                    </div>
+
+                </div>
+            </nav>
+                <div class="uk-inline">
+                    <button class="uk-button uk-button-default" type="button">Search</button>
+                    <div uk-dropdown="mode: click" value="location">Location</div>
+                    <div uk-dropdown="mode: click" value="season">Season</div>
+                </div>
+        </div>
+    </div>
+    <div ukgrid>
+        {{#each table}}
+        {{> data-block}}
+        {{/each}}
+    </div>
