@@ -3,7 +3,7 @@
     <div class="uk-navbar-left">
 
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="#">Home</a></li>
+            <li class="uk-active"><a href="/app/views/search.handlebars">Home</a></li>
         </ul>
 
     </div>
@@ -13,8 +13,19 @@
             <li class="uk-active"><a href="#">Parent</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-active"><a href="#">Login In</a></li>
-                        <li class="uk-active"><a href="#">Sign Up</a></li>
+                        {{#unless owner}}
+                        <li class="uk-active"><a href="/app/views/signin.hbs">Login In</a></li>
+                        {{/unless}}
+                        {{#if owner}}
+                        <li class="uk-active"><a href="/app/views/profile">Profile</a></li>
+                        {{/if}}
+                        {{#unless owner}}
+                        <li class="uk-active"><a href="/app/views/signup.hbs">Sign Up</a></li>
+                        {{/unless}}
+                        {{#if owner}}
+                        <li class="uk-active"><a href="/app/views/search.handlebars">Log out</a></li>
+                        {{/if}}
+
                     </ul>
                 </div>
             </li>
@@ -31,7 +42,6 @@
                         </form>
                     </div>
 
-<<<<<<< HEAD:views/index.handlebars
                 </div>
             </nav>
                 <div class="uk-inline">
@@ -41,16 +51,9 @@
                 </div>
         </div>
     </div>
+</nav>
     <div ukgrid>
         {{#each table}}
         {{> data-block}}
         {{/each}}
     </div>
-</nav>
-<footer>
-    copyright &copy;
-</footer>
-=======
-</nav>
-
->>>>>>> dc211d78cd85b459bd2ecb4d04ce45c2d09a045b:app/views/index.handlebars
