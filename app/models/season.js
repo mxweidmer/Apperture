@@ -15,12 +15,8 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Season.associate = function (models) {
-        Season.belongsTo(models.Author, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
+        
     };
 
-    return Post;
+    return Season;
 };
