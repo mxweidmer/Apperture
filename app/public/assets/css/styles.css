@@ -1,19 +1,29 @@
 html, body {
     height: 100%;
+    position: relative;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
+#signup, #signin{
+    margin-top: 50%;
 }
-
 .content {
-    flex: 1 0 auto;
+    margin: auto;
+    
+}
+
+
+#blah{
+    margin: auto;
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 footer {
-    flex-shrink: 0;
-    padding-top: 10%;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding-top: 5%;
     background-color: darkgray;
 }
 @media screen and (max-width: 980px) {
