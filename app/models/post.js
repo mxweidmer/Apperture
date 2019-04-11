@@ -15,19 +15,22 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Post.associate = function (models) {
-        Post.belongsTo(models.Users, {
+        Post.belongsTo(models.User, {
+            as: "post",
             foreignKey: {
                 allowNull: false
             }
         });
 
-        Post.belongsTo(models.Season, {
+        Post.belongsTo(models.Location, {
+            as: "post",
             foreignKey: {
                 allowNull: false
             }
         })
 
         Post.belongsTo(models.Season, {
+            as: "post",
             foreignKey: {
                 allowNull: false
             }

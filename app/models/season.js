@@ -15,7 +15,12 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Season.associate = function (models) {
-        
+        Season.hasMany(models.Post, {
+            as: "posts",
+            foreignKey: {
+                allowNull: false
+            }
+        });
     };
 
     return Season;
