@@ -11,26 +11,31 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TEXT,
             allowNull: false,
             len: [1]
+        },
+        imgId: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        location: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     });
 
     Post.associate = function (models) {
         Post.belongsTo(models.User, {
-            as: "post",
             foreignKey: {
                 allowNull: false
             }
         });
 
         Post.belongsTo(models.Location, {
-            as: "post",
             foreignKey: {
                 allowNull: false
             }
         })
 
         Post.belongsTo(models.Season, {
-            as: "post",
             foreignKey: {
                 allowNull: false
             }
