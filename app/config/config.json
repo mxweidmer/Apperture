@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "asialink7861",
-    "database": "sequelize_passport",
+    "database": "group_project",
     "force": true,
     "host": "127.0.0.1",
     "dialect": "mysql"

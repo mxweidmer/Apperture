@@ -1,3 +1,4 @@
+//This file is used to import all the models we place in the models folder, and export them
 "use strict";
  
 var fs = require("fs");
