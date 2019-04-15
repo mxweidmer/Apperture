@@ -50,6 +50,14 @@ require('./app/config/passport/passport.js')(passport, models.User);
 models.sequelize.sync().then(function () {
 
     console.log('Nice! Database Working Fine')
+    // Port configuration
+    app.listen(PORT, function (err) {
+
+        if (!err)
+            console.log("Listening Server....!");
+        else console.log(err)
+
+    });
 
 }).catch(function (err) {
 
@@ -58,11 +66,3 @@ models.sequelize.sync().then(function () {
 });
 
 
-// Port configuration
-app.listen(PORT, function (err) {
-
-    if (!err)
-        console.log("Listening Server....!");
-    else console.log(err)
-
-});
