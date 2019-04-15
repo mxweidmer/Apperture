@@ -12,14 +12,19 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             len: [1]
         },
-        imgId: {
+        imgLink: {
             type: DataTypes.STRING,
             allowNull: false
         },
         location: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        season: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
+
     });
 
     Post.associate = function (models) {
