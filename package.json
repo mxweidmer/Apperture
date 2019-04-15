@@ -1,5 +1,5 @@
 {
-  "name": "group-project-2",
+  "name": "apperture",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mxweidmer/group-project-2.git"
+    "url": "git+https://github.com/mxweidmer/apperture.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mxweidmer/group-project-2/issues"
+    "url": "https://github.com/mxweidmer/apperture/issues"
   },
-  "homepage": "https://github.com/mxweidmer/group-project-2#readme",
+  "homepage": "https://github.com/mxweidmer/apperture#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",

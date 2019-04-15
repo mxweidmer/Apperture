@@ -47,7 +47,7 @@ require("./app/controllers/postController.js")(app);
 require('./app/config/passport/passport.js')(passport, models.User);
 
 //Sync Database
-models.sequelize.sync().then(function () {
+models.sequelize.sync({ force: true }).then(function () {
 
     console.log('Nice! Database Working Fine')
     // Port configuration
