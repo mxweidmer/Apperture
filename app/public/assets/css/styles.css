@@ -3,7 +3,9 @@ html, body {
     position: relative;
     background-color: #FFDBAD;
 }
-
+nav .content{
+ background-color: #B38956;
+}
 #signup, #signin{
     margin-top: 2%;
 }
@@ -24,6 +26,10 @@ html, body {
     border-radius: 10px;
 
 }
+.logo{
+height: 25%;
+width: 25%;
+}
 .form-div{
     background-color: #FFF0D8;
     margin-top: 5%;
@@ -43,11 +49,19 @@ footer {
     padding-top: 5%;
     background-color: #B38956;
 }
+.logo-img{
+    height: 50%;
+    width: 50%;
+}
 @media screen and (max-width: 980px) {
 }
 @media screen and (max-width: 768px) {
 }
 @media screen and (max-width: 640px) {
+    splash-img{
+        text-align: center;
+        
+    }
 }
 
 
