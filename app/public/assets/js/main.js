@@ -13,9 +13,18 @@ $(function () {
 
     $("search").on("click", function (event) {
         event.preventDefault();
-        $.get("/search", search, function () {
-            var option = $("#option").val()
-            var search = $("#search").val()
+
+        if ($("#option").val()) {
+            var thing = "/" + $("#option").val()
+        } else if ($("#search").val()) {
+            var thing = "/" + $("#search").val()
+        } else {
+            var thing = "";
+        }
+
+        $.get("/search" + thing, search, function () {
+        }).then(function() {
+            console.log("Search completed")
         })
     })
 
@@ -34,9 +43,18 @@ $(function () {
             },
             data: form,
             success: function (response) {
-                console.log(response);
-                var photo = response.data.link;
-                var photo_hash = response.data.deletehash;
+
+                var postData = {
+                    title: $("#title").val(),
+                    body: $("#body").val(),
+                    imgLink: response.data.link,
+                    location: $("#location").val(),
+                    season: $("#season").val()
+                }
+
+                $.post("/api/posts", postData).then(function () {
+                    console.log("Post created")
+                })
             },
             cache: false,
             contentType: false,

@@ -3,9 +3,11 @@ var app = express();
 var passport = require('passport');
 var session = require('express-session');
 var bodyParser = require('body-parser');
-var env = require('dotenv');
+require('dotenv').config();
 var exphbs = require('express-handlebars');
 var flash = require('connect-flash');
+
+var PORT = process.env.PORT || 8080;
 
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -38,6 +40,7 @@ var models = require("./app/models");
 //Routes
 var authRoute = require('./app/routes/auth.js')(app, passport);
 require("./app/routes/html-routes")(app);
+require("./app/controllers/postController.js")(app);
 
 
 //load passport strategies
@@ -56,7 +59,7 @@ models.sequelize.sync().then(function () {
 
 
 // Port configuration
-app.listen(8080, function (err) {
+app.listen(PORT, function (err) {
 
     if (!err)
         console.log("Listening Server....!");
