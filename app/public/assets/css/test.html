@@ -15,17 +15,48 @@
 </head>
 
 <body>
-    <div>
-        <video autoplay loop muted>
-            <source src="../../img/Feather-11168.mp4" type="video/mp4" />
-        </video>
-        <div class="overlay splash splash-div">
-        <img class="logo-img" src="../../img/white.png" alt="">
-        <h1>Do it for the cake!</h1>
-        <a href="/signup" class="uk-button uk-button-default btn">Sign Up</a>
-        <a href="/signin" class="uk-button uk-button-default btn">Sign In</a>
-        </div>
+    <div class="uk-grid uk-flex-center">
+        <div class="uk-width-xlarge uk-flex-middle form-div">
     
+            <!-- {{#if errors}}
+            {{#each errors}}
+            <div>{{msg}}</div>
+            {{/each}}
+            {{/if}} -->
+    
+            <form class="uk-form-stacked" id="signup" name="signup" method="post" action="/signup">
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">First Name</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" name="firstname" id="form-stacked-text" type="text" placeholder="Jane">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Last Name</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" name="lastname" id="form-stacked-text" type="text" placeholder="Doe">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Email</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" name="email" id="form-stacked-text" type="email"
+                            placeholder="janedoe@email.com">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Password</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" name="password" id="form-stacked-text" type="password" placeholder="...">
+                    </div>
+                </div>
+                <div class="user-btns">
+                    <a href="/signin" class="uk-button uk-button-default btn">Sign In</a>
+                    <button class="uk-button uk-button-default btn main-btn" type="submit" value="Sign Up">Sign Up!</button>
+                </div>
+            </form>
+    
+        </div>
     </div>
 </body>
 
