@@ -1,4 +1,10 @@
 
+$.ajaxPrefilter(function (options) {
+    if (options.crossDomain && $.support.cors) {
+        options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+    }
+});
+
 $(function () {
 
     $("signin-btn").on("click", function (event) {
@@ -11,28 +17,22 @@ $(function () {
         signUp();
     })
 
-    $("search").on("click", function (event) {
+    $("#searchButton").on("click", function (event) {
         event.preventDefault();
 
-        if ($("#option").val()) {
-            var thing = "/" + $("#option").val()
-        } else if ($("#search").val()) {
-            var thing = "/" + $("#search").val()
-        } else {
-            var thing = "";
-        }
+        var searchRoute = "";
+        searchRoute += "/" + $("#option").val();
+        searchRoute += "/" + $("#search").val();
 
-        $.get("/search" + thing, search, function () {
-        }).then(function() {
+        $.get("/api/posts" + searchRoute, function () {
+        }).then(function () {
             console.log("Search completed")
         })
     })
 
-    $("#submitpostplaceholder").on("click", function () {
+    $("#add").on("click", function () {
         var form = new FormData();
         form.append("image", $('#fileInput')[0].files[0])
-
-        console.log(form)
 
         $.ajax({
             url: "https://api.imgur.com/3/upload",
@@ -45,12 +45,13 @@ $(function () {
             success: function (response) {
 
                 var postData = {
-                    title: $("#title").val(),
                     body: $("#body").val(),
                     imgLink: response.data.link,
                     location: $("#location").val(),
-                    season: $("#season").val()
+                    season: $("#option").val()
                 }
+
+                console.log(postData)
 
                 $.post("/api/posts", postData).then(function () {
                     console.log("Post created")

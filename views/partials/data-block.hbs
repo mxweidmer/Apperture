@@ -1,13 +1,14 @@
 <div class="uk-child-width-1-4 uk-text-center" uk-toggle="target: #modal-example" data-id={{id}} data-state={{state}}
     uk-grid>
     <div>
-        {{image}}
+        <img src={{dataValues.imgLink}} alt="">
     </div>
     <div>
         <div class="uk-child-width-3-4 uk-text-center" uk-grid>
             <ul>
-                <li>{{location}}</li>
-                <li>{{description}}</li>
+                <li>{{dataValues.location}}</li>
+                <li>{{dataValues.season}}</li>
+                <li>{{dataValues.body}}</li>
             </ul>
         </div>
     </div>

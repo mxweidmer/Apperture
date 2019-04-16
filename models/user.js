@@ -36,11 +36,11 @@ module.exports = function (sequelize, Sequelize) {
         }
     });
 
-    User.associate = function (models) {
-        User.hasMany(models.Post, {
-            onDelete: "CASCADE"
-        });
-    };
+    // User.associate = function (models) {
+    //     User.hasMany(models.Post, {
+    //         onDelete: "CASCADE"
+    //     });
+    // };
 
     return User;
 

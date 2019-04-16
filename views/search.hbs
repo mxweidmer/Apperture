@@ -2,10 +2,11 @@
 
     <div class="uk-navbar-left">
 
-            <div class="uk-responsive-width uk-responsive-hieght">
-                <a class="uk-navbar-item uk-responsive-width uk-responsive-hieght logo uk-logo" href=""><img src="/img/color.png" alt="Logo">
-                </a>    
-            </div>
+        <div class="uk-responsive-width uk-responsive-hieght">
+            <a class="uk-navbar-item uk-responsive-width uk-responsive-hieght logo uk-logo" href=""><img
+                    src="/img/color.png" alt="Logo">
+            </a>
+        </div>
 
     </div>
 
@@ -38,7 +39,7 @@
                     <span></span>
                 </div>
             </div>
-            <button class="uk-button uk-button-default main-btn" type="button">Search</button>
+            <button id="searchButton" class="uk-button uk-button-default main-btn" type="button">Search</button>
         </form>
 
     </div>
@@ -47,7 +48,9 @@
     <div class="uk-width-xlarge uk-flex-middle form-div">
 
         <div class="uk-search uk-search-default uk-inline uk-width-1-1">
+            {{test}}
             {{#each table}}
+            <h1>Heres something</h1>
             {{> data-block}}
             {{/each}}
         </div>
