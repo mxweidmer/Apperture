@@ -23,11 +23,11 @@ app.use(passport.initialize());
 
 app.use(passport.session()); // persistent login sessions
 
-app.use(express.static("app/public"));
+app.use(express.static("public"));
 
 
 //For Handlebars
-app.set('views', './app/views')
+app.set('views', './views')
 app.engine('hbs', exphbs({
     extname: '.hbs',
     defaultLayout: "main"
@@ -35,16 +35,16 @@ app.engine('hbs', exphbs({
 app.set('view engine', '.hbs');
 
 //Models
-var models = require("./app/models");
+var models = require("./models");
 
 //Routes
-var authRoute = require('./app/routes/auth.js')(app, passport);
-require("./app/routes/html-routes")(app);
-app.use(require("./app/controllers/postController.js"));
+var authRoute = require('./routes/auth.js')(app, passport);
+require("./routes/html-routes")(app);
+app.use(require("./controllers/postController.js"));
 
 
 //load passport strategies
-require('./app/config/passport/passport.js')(passport, models.User);
+require('./config/passport/passport.js')(passport, models.User);
 
 //Sync Database
 models.sequelize.sync({ force: true }).then(function () {
