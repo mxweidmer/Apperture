@@ -8,7 +8,6 @@ var db = require("../models");
 
 router.post("/api/posts", function (req, res) {
     db.Post.create({
-        title: req.body.title,
         body: req.body.body,
         imgLink: req.body.imgLink,
         location: req.body.location,
@@ -18,22 +17,31 @@ router.post("/api/posts", function (req, res) {
     })
 })
 
-router.get("/api/posts/:location", function (req, res) {
-    var condition;
-
-    d
-
-    db.Post.findAll({ include: [db.Location] })
-})
-
-router.get("/api/posts/:season", function (req, res) {
-
+router.get("/api/posts/location/:location", function (req, res) {
     db.Post.findAll({
         where: {
-            id: req.params.season
+            location: req.params.location
         }
     }).then(function (dbPost) {
-        res.render("search", { table: dbPost })
+        console.log(dbPost.length);
+        var hbs = {
+            table: dbPost,
+            test: "Something"
+        }
+        res.render("search2", hbs)
+    })
+})
+
+router.get("/api/posts/season/:season", function (req, res) {
+    db.Post.findAll({
+        where: {
+            season: req.params.season
+        }
+    }).then(function (dbPost) {
+        var hbs = {
+            table: dbPost
+        }
+        res.render("search", hbs)
     })
 })
 

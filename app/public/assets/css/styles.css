@@ -49,11 +49,19 @@ footer {
     padding-top: 5%;
     background-color: #B38956;
 }
+.logo-img{
+    height: 50%;
+    width: 50%;
+}
 @media screen and (max-width: 980px) {
 }
 @media screen and (max-width: 768px) {
 }
 @media screen and (max-width: 640px) {
+    splash-img{
+        text-align: center;
+        
+    }
 }
 
 

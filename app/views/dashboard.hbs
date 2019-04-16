@@ -2,10 +2,11 @@
 
     <div class="uk-navbar-left">
 
-            <div class="uk-responsive-width uk-responsive-hieght">
-                <a class="uk-navbar-item uk-responsive-width uk-responsive-hieght logo uk-logo" href="/search"><img src="/img/color.png" alt="Logo">
-                </a>    
-            </div>
+        <div class="uk-responsive-width uk-responsive-hieght">
+            <a class="uk-navbar-item uk-responsive-width uk-responsive-hieght logo uk-logo" href="/search"><img
+                    src="/img/color.png" alt="Logo">
+            </a>
+        </div>
 
     </div>
 
@@ -26,8 +27,8 @@
 <div class="uk-grid uk-flex-center">
     <div class="uk-width-xlarge uk-flex-middle form-div">
         <div>
-        <span class="uk-margin-small-right uk-align-right" uk-toggle="target: #modal-example"
-            uk-icon="plus-circle"></span>
+            <span class="uk-margin-small-right uk-align-right" uk-toggle="target: #modal-example"
+                uk-icon="plus-circle"></span>
         </div>
         <div ukgrid>
             {{#each table}}
@@ -41,20 +42,28 @@
         <form>
             <div class="uk-margin" uk-margin>
                 <div uk-form-custom="target: true">
-                    <input type="file">
-                    <input class="uk-input uk-form-width-large" type="text" placeholder="Select file" disabled>
+                    <input type="file" id="fileInput">
+                    <input class="uk-input uk-form-width-large" type="text" placeholder="Select image" disabled>
                 </div>
-                <button class="uk-button uk-button-default">Submit</button>
             </div>
             <div class="uk-margin">
-                <input class="uk-input uk-form-width-large" type="text" placeholder="Large" value="{{this.location}}">
+                <input class="uk-input uk-form-width-large" type="text" placeholder="Location" id="location" value="{{this.location}}">
+            </div>
+            <div uk-form-custom="target: true">
+                <select id="option">
+                    <option value="winter">Winter</option>
+                    <option value="spring">Spring</option>
+                    <option value="summer">Summer</option>
+                    <option value="fall">Fall</option>
+                </select>
+                <span></span>
             </div>
             <div class="uk-margin">
-                <textarea class="uk-textarea" rows="5" placeholder="Textarea">{{this.description}}</textarea>
+                <textarea class="uk-textarea" id="body" rows="5" placeholder="Main text">{{this.description}}</textarea>
             </div>
             <div class="uk-align-right">
-            <button class="uk-button uk-button-default uk-modal-close " type="button">Cancel</button>
-            <button class="uk-button uk-button-default uk-modal-close add" type="button">Add</button>
+                <button class="uk-button uk-button-default uk-modal-close " type="button">Cancel</button>
+                <button id="add" class="uk-button uk-button-default uk-modal-close add" type="button">Add</button>
             </div>
         </form>
     </div>

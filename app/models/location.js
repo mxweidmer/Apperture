@@ -9,13 +9,13 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    Location.associate = function (models) {
-        Location.hasMany(models.Post, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
+    // Location.associate = function (models) {
+    //     Location.hasMany(models.Post, {
+    //         foreignKey: {
+    //             allowNull: false
+    //         }
+    //     });
+    // };
 
     return Location;
 };
